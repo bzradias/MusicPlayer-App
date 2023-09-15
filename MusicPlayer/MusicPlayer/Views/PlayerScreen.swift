@@ -10,6 +10,10 @@ import SwiftUI
 struct PlayerScreen: View {
     @Environment(\.presentationMode) var presentation
     @State private var orientation = UIDevice.current.orientation
+    @State private var showSongDetails: Bool = false
+    @State private var selectedDetent: PresentationDetent = .fraction(0.22)
+    private let availableDetents: Set<PresentationDetent> = [.fraction(0.22), .large]
+    
     @State private var iconStyle: SongIconStyle = .Large
     
     var song: Song
@@ -41,6 +45,11 @@ struct PlayerScreen: View {
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
             setupOrientation()
         }
+        .sheet(isPresented: $showSongDetails) {
+            PlayerBottomSheetView(selectedDetent: $selectedDetent)
+                .presentationDetents(availableDetents, selection: $selectedDetent)
+                .presentationDragIndicator(.hidden)
+        }
     }
     
     private var customNavBar: some View {
@@ -54,7 +63,7 @@ struct PlayerScreen: View {
             
             Spacer()
             GenericButton(action: {
-                // TODO: Abrir Bottom Sheet
+                showSongDetails.toggle()
             }, content: Image("ic-more").resizable().frame(width: 24, height: 24))
             .padding(.horizontal, 24)
             .padding(.vertical, 12)

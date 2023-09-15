@@ -32,7 +32,7 @@ struct ColorPalette {
     }
     
     static var bottomSheetBackground: Color {
-        return Color(hex: 0x262626CC)
+        return Color(hex: 0x262626).opacity(0.8)
     }
     
     static var songIconBackground: Color {

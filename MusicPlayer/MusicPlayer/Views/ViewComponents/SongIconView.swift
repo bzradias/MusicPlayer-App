@@ -7,37 +7,6 @@
 
 import SwiftUI
 
-enum SongIconStyle  {
-    case Small, Large
-    
-    var radius: CGFloat {
-        switch self {
-        case .Small:
-            return 8
-        case .Large:
-            return 39
-        }
-    }
-    
-    var size: CGFloat {
-        switch self {
-        case .Small:
-            return 24
-        case .Large:
-            return 116
-        }
-    }
-    
-    var padding: CGFloat {
-        switch self {
-        case .Small:
-            return 10
-        case .Large:
-            return 41
-        }
-    }
-}
-
 struct SongIconView: View {
     public var iconStyle: SongIconStyle = .Small
     
@@ -51,6 +20,31 @@ struct SongIconView: View {
                 .padding(iconStyle.padding)
         }
         .fixedSize()
+    }
+}
+
+enum SongIconStyle  {
+    case Small, Large
+    
+    var radius: CGFloat {
+        switch self {
+        case .Small: return 8
+        case .Large: return 39
+        }
+    }
+    
+    var size: CGFloat {
+        switch self {
+        case .Small: return 24
+        case .Large: return 116
+        }
+    }
+    
+    var padding: CGFloat {
+        switch self {
+        case .Small: return 10
+        case .Large: return 41
+        }
     }
 }
 
