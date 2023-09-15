@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct MusicPlayerApp: App {
+    init() {
+        Theme.navigationBarColors(background: ColorPalette.appBackground.toUIColor(), titleColor: ColorPalette.primaryText.toUIColor())
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SongScreen()
+                .preferredColorScheme(ColorScheme.dark)
         }
     }
 }
