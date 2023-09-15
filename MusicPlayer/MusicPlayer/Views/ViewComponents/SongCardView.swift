@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SongCardView: View {
+    var song: Song
+    
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
             SongIconView(iconStyle: .Small)
@@ -19,6 +21,6 @@ struct SongCardView: View {
 
 struct SongCardView_Previews: PreviewProvider {
     static var previews: some View {
-        SongCardView()
+        SongCardView(song: Song.getInstance())
     }
 }

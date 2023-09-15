@@ -27,6 +27,15 @@ enum SongIconStyle  {
             return 116
         }
     }
+    
+    var padding: CGFloat {
+        switch self {
+        case .Small:
+            return 10
+        case .Large:
+            return 41
+        }
+    }
 }
 
 struct SongIconView: View {
@@ -39,7 +48,9 @@ struct SongIconView: View {
             Image("SongIcon")
                 .resizable()
                 .frame(width: iconStyle.size, height: iconStyle.size)
+                .padding(iconStyle.padding)
         }
+        .fixedSize()
     }
 }
 
