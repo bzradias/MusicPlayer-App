@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3367AD4C2AB4F83300965050 /* PlayerBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367AD4B2AB4F83300965050 /* PlayerBottomSheetView.swift */; };
+		3367AD4E2AB5234F00965050 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367AD4D2AB5234F00965050 /* Song.swift */; };
+		3367AD512AB5255A00965050 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3367AD502AB5255A00965050 /* Kingfisher */; };
 		339714A82AB2A4A4009707FD /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714A72AB2A4A4009707FD /* MusicPlayerApp.swift */; };
 		339714AA2AB2A4A4009707FD /* SongScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714A92AB2A4A4009707FD /* SongScreen.swift */; };
 		339714AC2AB2A4A5009707FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339714AB2AB2A4A5009707FD /* Assets.xcassets */; };
@@ -51,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		3367AD4B2AB4F83300965050 /* PlayerBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBottomSheetView.swift; sourceTree = "<group>"; };
+		3367AD4D2AB5234F00965050 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		339714A42AB2A4A4009707FD /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		339714A72AB2A4A4009707FD /* MusicPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerApp.swift; sourceTree = "<group>"; };
 		339714A92AB2A4A4009707FD /* SongScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongScreen.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3367AD512AB5255A00965050 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				339714F22AB3F65B009707FD /* SongsList.swift */,
+				3367AD4D2AB5234F00965050 /* Song.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +268,9 @@
 			dependencies = (
 			);
 			name = MusicPlayer;
+			packageProductDependencies = (
+				3367AD502AB5255A00965050 /* Kingfisher */,
+			);
 			productName = MusicPlayer;
 			productReference = 339714A42AB2A4A4009707FD /* MusicPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -335,6 +343,9 @@
 				Base,
 			);
 			mainGroup = 3397149B2AB2A4A4009707FD;
+			packageReferences = (
+				3367AD4F2AB5255A00965050 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 339714A52AB2A4A4009707FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -391,6 +402,7 @@
 				339714D82AB2B07C009707FD /* ColorPalette.swift in Sources */,
 				3367AD4C2AB4F83300965050 /* PlayerBottomSheetView.swift in Sources */,
 				339714E12AB2C8BE009707FD /* View.swift in Sources */,
+				3367AD4E2AB5234F00965050 /* Song.swift in Sources */,
 				339714E42AB2C8FF009707FD /* RoundedCornerShape.swift in Sources */,
 				339714E62AB2C9A9009707FD /* SongCardView.swift in Sources */,
 				339714F12AB3F56A009707FD /* SongsListView.swift in Sources */,
@@ -719,6 +731,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3367AD4F2AB5255A00965050 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3367AD502AB5255A00965050 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3367AD4F2AB5255A00965050 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3397149C2AB2A4A4009707FD /* Project object */;
 }

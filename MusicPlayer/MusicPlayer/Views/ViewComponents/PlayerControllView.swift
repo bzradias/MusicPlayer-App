@@ -14,7 +14,7 @@ struct PlayerControllView: View {
     var body: some View {
         VStack(spacing: 16) {
             HStack {
-                SongDescriptionView(songDescriptionStyle: .Large)
+                SongDescriptionView(song: song, songDescriptionStyle: .Large)
                 Spacer()
             }
             VStack {

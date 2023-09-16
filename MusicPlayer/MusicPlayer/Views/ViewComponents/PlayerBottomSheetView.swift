@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PlayerBottomSheetView: View {
+    public var song: Song
+    
     private let openAlbumLabel: String = "Open album"
     private let albumTitle: String = "Album Name"
     @Binding var selectedDetent: PresentationDetent
@@ -38,7 +40,7 @@ struct PlayerBottomSheetView: View {
             ColorPalette.bottomSheetBackground.edgesIgnoringSafeArea(.all)
             capsuleView
             VStack(alignment: .center, spacing: 42) {
-                SongDescriptionView(songDescriptionStyle: .Medium)
+                SongDescriptionView(song: song, songDescriptionStyle: .Medium)
                 HStack(alignment: .center, spacing: 16) {
                     Button {
                         selectedDetent = .large
@@ -90,6 +92,6 @@ struct PlayerBottomSheetView: View {
 
 struct PlayerBottomSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerBottomSheetView(selectedDetent: .constant(.medium))
+        PlayerBottomSheetView(song: Song.getInstance(), selectedDetent: .constant(.medium))
     }
 }

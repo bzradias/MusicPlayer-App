@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct SongDescriptionView: View {
+    public var song: Song
     public var songDescriptionStyle: SongDescriptionStyle = .Small
     
     var body: some View {
         VStack(alignment: songDescriptionStyle.alignment, spacing: songDescriptionStyle.spacing) {
-            Text("Something")
+            Text(song.trackName)
                 .font(songDescriptionStyle.songFont)
                 .foregroundColor(ColorPalette.primaryText)
-            Text("Artist")
+            Text(song.artistName)
                 .font(songDescriptionStyle.artistFont)
                 .foregroundColor(ColorPalette.secondaryText)
         }
@@ -57,6 +58,6 @@ enum SongDescriptionStyle  {
 
 struct SongDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        SongDescriptionView()
+        SongDescriptionView(song: Song.getInstance())
     }
 }

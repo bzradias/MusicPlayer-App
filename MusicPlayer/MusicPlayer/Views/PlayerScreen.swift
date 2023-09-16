@@ -28,7 +28,7 @@ struct PlayerScreen: View {
                     GridItem(.fixed(geometry.size.height * 0.4), alignment: .center)
                 ], alignment: .center, spacing: 0) {
                     Spacer()
-                    SongIconView(iconStyle: iconStyle)
+                    SongIconView(song: song, iconStyle: iconStyle)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
@@ -46,7 +46,7 @@ struct PlayerScreen: View {
             setupOrientation()
         }
         .sheet(isPresented: $showSongDetails) {
-            PlayerBottomSheetView(selectedDetent: $selectedDetent)
+            PlayerBottomSheetView(song: song, selectedDetent: $selectedDetent)
                 .presentationDetents(availableDetents, selection: $selectedDetent)
                 .presentationDragIndicator(.hidden)
         }
