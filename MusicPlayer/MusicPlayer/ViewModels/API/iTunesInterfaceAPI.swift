@@ -8,7 +8,7 @@
 import Foundation
 
 public enum iTunesRequestType {
-    case SongsListSearch(term: String)
+    case SongsListSearch(term: String, limit: Int, offset: Int)
     case AlbumSearch(collectionID: Int)
     
     internal func getRequestURL() -> URLRequest {
@@ -16,8 +16,8 @@ public enum iTunesRequestType {
         let timeout: TimeInterval = 10.0
         
         switch self {
-        case .SongsListSearch(let term):
-            request = URLRequest(url: NSURL(string: "https://itunes.apple.com/search?term=\(term.replacing(" ", with: "+"))&entity=song")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
+        case .SongsListSearch(let term, let limit, let offset):
+            request = URLRequest(url: NSURL(string: "https://itunes.apple.com/search?term=\(term.replacing(" ", with: "+"))&entity=song&limit=\(limit)&offset=\(offset)")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
         case .AlbumSearch(let collectionID):
             request = URLRequest(url: NSURL(string: "https://itunes.apple.com/lookup?id=\(collectionID)&entity=song")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
         }

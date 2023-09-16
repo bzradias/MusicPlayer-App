@@ -27,9 +27,18 @@ struct SongsListView: View {
                 .listRowBackground(ColorPalette.appBackground)
                 .listRowSeparator(.hidden, edges: .all)
                 .listRowInsets( .init(top: 8, leading: 16, bottom: 8, trailing: 0))
+                CustomProgressView()
+                    .onAppear {
+                        Task(priority: .high) {
+                            await viewModel.loadMore(showProgress: false)
+                        }
+                    }
             }
             .refreshable {
                 await viewModel.fetchSongsList(showProgress: true)
+            }
+            .onAppear {
+                viewModel.clear()
             }
             .scrollIndicators(.hidden)
             .listStyle(.plain)

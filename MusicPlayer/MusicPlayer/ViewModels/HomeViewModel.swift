@@ -17,9 +17,6 @@ class HomeViewModel: SongsListViewModel {
     private let iTunesAPI: iTunesInterfaceAPI = iTunesInterfaceAPI()
     private var subscriptions = Set<AnyCancellable>()
     
-    private let limitPages: Int = 20
-    private var currentPage: Int = 0
-    
     override init() {
         super.init()
         
@@ -38,14 +35,8 @@ class HomeViewModel: SongsListViewModel {
         await self.fetchSongsList(term: searchTerm, showProgress: false)
     }
     
-    @MainActor
-    private func clear() {
-        songsList = SongsList.getEmptyInstance()
-        currentPage = 0
-    }
-    
     override public func fetchSongsList(showProgress: Bool = true) async {
-        await fetchSongsList(term: searchTerm)
+        await fetchSongsList(term: searchTerm, showProgress: showProgress)
     }
     
     @MainActor
@@ -57,8 +48,9 @@ class HomeViewModel: SongsListViewModel {
         }
         
         // Fetch songs
-        if let songsList: SongsList = await iTunesAPI.sendRequest(type: .SongsListSearch(term: searchTerm)) {
-            self.songsList = songsList
+        if let songsList: SongsList = await iTunesAPI.sendRequest(type: .SongsListSearch(term: searchTerm, limit: limitPages, offset: currentPage)) {
+            self.currentPage += 1
+            self.songsList.results.append(contentsOf: songsList.results)
         }
         
         if showProgress {

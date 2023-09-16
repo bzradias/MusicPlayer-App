@@ -9,8 +9,8 @@ import Foundation
 
 /// MARK: - SongsList
 struct SongsList: Codable, InstanceProvider {
-    let resultCount: Int
-    let results: [Song]
+    var resultCount: Int
+    var results: [Song]
     
     static func getInstance() -> SongsList {
         let songs: [Song] = [Song.getInstance(), Song.getInstance(), Song.getInstance()]
