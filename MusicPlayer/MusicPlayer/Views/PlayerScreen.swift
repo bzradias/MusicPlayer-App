@@ -15,8 +15,11 @@ struct PlayerScreen: View {
     private let availableDetents: Set<PresentationDetent> = [.fraction(0.22), .large]
     
     @State private var iconStyle: SongIconStyle = .Large
+    private var iconViewSize: CGFloat {
+        return iconStyle == .Large ? 200 : 44
+    }
     
-    var song: Song
+    @StateObject public var playerViewModel: PlayerViewModel
     
     var body: some View {
         VStack(alignment: .center) {
@@ -28,12 +31,13 @@ struct PlayerScreen: View {
                     GridItem(.fixed(geometry.size.height * 0.4), alignment: .center)
                 ], alignment: .center, spacing: 0) {
                     Spacer()
-                    SongIconView(song: song, iconStyle: iconStyle)
+                    SongIconView(song: playerViewModel.currentSong, iconStyle: iconStyle)
+                        .frame(width: iconViewSize, height: iconViewSize)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
             }
-            PlayerControllView(song: song)
+            PlayerControllView(song: playerViewModel.currentSong)
                 .ignoresSafeArea(.all)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 25)
@@ -46,7 +50,7 @@ struct PlayerScreen: View {
             setupOrientation()
         }
         .sheet(isPresented: $showSongDetails) {
-            PlayerBottomSheetView(song: song, selectedDetent: $selectedDetent)
+            PlayerBottomSheetView(playerViewModel: playerViewModel, selectedDetent: $selectedDetent)
                 .presentationDetents(availableDetents, selection: $selectedDetent)
                 .presentationDragIndicator(.hidden)
         }
@@ -79,6 +83,6 @@ struct PlayerScreen: View {
 
 struct PlayerScreen_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerScreen(song: Song.getInstance())
+        PlayerScreen(playerViewModel: PlayerViewModel(currentSong: Song.getInstance()))
     }
 }

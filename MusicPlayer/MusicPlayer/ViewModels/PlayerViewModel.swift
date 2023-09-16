@@ -2,13 +2,19 @@
 //  PlayerViewModel.swift
 //  MusicPlayer
 //
-//  Created by Rafael Nunes Bezerra Dias on 14/09/23.
+//  Created by Rafael Nunes Bezerra Dias on 15/09/23.
 //
 
 import Foundation
-import SwiftUI
 
-class PlayerViewModel: ObservableObject {
-    @Published var songsList: SongsList = SongsList.getInstance()
-    @Published var searchTerm: String = ""
+class PlayerViewModel: SongsListViewModel {
+    @Published public var currentSong: Song
+    
+    override func fetchSongsList(showProgress: Bool) async {
+        // TODO: Fetch album songs
+    }
+    
+    init(currentSong: Song) {
+        self.currentSong = currentSong
+    }
 }

@@ -18,34 +18,34 @@ struct SongIconView: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-            RoundedCornerShape(radius: iconStyle.radius, corner: .allCorners)
-                .fill(ColorPalette.songIconBackground)
             songImageView
-                .frame(width: iconStyle.size, height: iconStyle.size)
-                .padding(iconStyle.padding)
         }
-        .fixedSize()
     }
     
     @ViewBuilder
     private var songImageView: some View {
         if !iconImageName.isEmpty {
             KFImage(URL(string: iconImageName))
-                .resizable()
                 .placeholder { progress in
                     ZStack {
-                        RoundedCornerShape(radius: 8, corner: .allCorners)
-                            .fill(ColorPalette.sliderBackground)
+                        RoundedCornerShape(radius: iconStyle.radius, corner: .allCorners)
+                            .fill(ColorPalette.songIconBackground)
                         if !progress.isFinished {
-                            ProgressView()
-                                .tint(ColorPalette.sliderHighlightBackground)
+                            CustomProgressView()
                         }
                     }
                 }
                 .resizable()
+                .cornerRadius(radius: iconStyle.radius, corner: .allCorners)
         } else {
-            Image("SongIcon")
-                .resizable()
+            ZStack(alignment: .center) {
+                RoundedCornerShape(radius: iconStyle.radius, corner: .allCorners)
+                    .fill(ColorPalette.songIconBackground)
+                Image("SongIcon")
+                    .resizable()
+                    .frame(width: iconStyle.size, height: iconStyle.size)
+                    .padding(iconStyle.padding)
+            }
         }
     }
 }

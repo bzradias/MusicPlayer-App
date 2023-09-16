@@ -15,7 +15,7 @@ struct MusicPlayerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SongScreen()
+            SongsListScreen()
                 .preferredColorScheme(ColorScheme.dark)
         }
     }

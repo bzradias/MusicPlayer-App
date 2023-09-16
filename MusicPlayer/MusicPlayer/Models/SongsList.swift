@@ -16,4 +16,9 @@ struct SongsList: Codable, InstanceProvider {
         let songs: [Song] = [Song.getInstance(), Song.getInstance(), Song.getInstance()]
         return SongsList(resultCount: songs.count, results: songs)
     }
+    
+    static func getEmptyInstance() -> SongsList {
+        let songs: [Song] = []
+        return SongsList(resultCount: songs.count, results: songs)
+    }
 }
