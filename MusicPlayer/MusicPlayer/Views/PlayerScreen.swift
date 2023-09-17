@@ -37,7 +37,7 @@ struct PlayerScreen: View {
                 }
                 .frame(maxWidth: .infinity)
             }
-            PlayerControllView(song: playerViewModel.currentSong)
+            PlayerControllView(playerViewModel: playerViewModel)
                 .ignoresSafeArea(.all)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 25)

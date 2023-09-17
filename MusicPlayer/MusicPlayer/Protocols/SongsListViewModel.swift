@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class SongsListViewModel: ObservableObject {
-    @Published internal var songsList: SongsList = SongsList.getInstance()
+    @Published public var songsList: SongsList = SongsList.getInstance()
     @Published var isSearching: Bool = false
     
     internal var subscriptions = Set<AnyCancellable>()

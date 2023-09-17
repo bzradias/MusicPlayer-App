@@ -30,14 +30,14 @@
             filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "fetchSongsList(showProgress:)"
             landmarkType = "7">
             <Locations>
                <Location
                   uuid = "9FF26A11-A2AC-41FD-81FD-54BA0C794E87 - 501206c5b5e2209a"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(1) suspend resume partial function for MusicPlayer.PlayerViewModel.fetchSongsList(showProgress: Swift.Bool) async -&gt; ()"
@@ -52,7 +52,7 @@
                </Location>
                <Location
                   uuid = "9FF26A11-A2AC-41FD-81FD-54BA0C794E87 - 506aef7f32925669"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(2) await resume partial function for MusicPlayer.PlayerViewModel.fetchSongsList(showProgress: Swift.Bool) async -&gt; ()"
@@ -67,7 +67,7 @@
                </Location>
                <Location
                   uuid = "9FF26A11-A2AC-41FD-81FD-54BA0C794E87 - cfd63a569cbec9c"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(3) suspend resume partial function for MusicPlayer.PlayerViewModel.fetchSongsList(showProgress: Swift.Bool) async -&gt; ()"
@@ -82,7 +82,7 @@
                </Location>
                <Location
                   uuid = "9FF26A11-A2AC-41FD-81FD-54BA0C794E87 - cfd63a569cbec9c"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(3) suspend resume partial function for MusicPlayer.PlayerViewModel.fetchSongsList(showProgress: Swift.Bool) async -&gt; ()"
@@ -96,6 +96,22 @@
                   offsetFromSymbolStart = "236">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4F7AE9B8-837A-4CC6-8F82-433D244B86AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicPlayer/Views/ViewComponents/PlayerControllView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "remainingSongTimeLabel"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
