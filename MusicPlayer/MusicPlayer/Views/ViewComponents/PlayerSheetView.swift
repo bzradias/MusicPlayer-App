@@ -1,5 +1,5 @@
 //
-//  PlayerBottomSheetView.swift
+//  PlayerSheetView.swift
 //  MusicPlayer
 //
 //  Created by Rafael Nunes Bezerra Dias on 15/09/23.
@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct PlayerBottomSheetView: View {
+struct PlayerSheetView: View {
     @StateObject public var playerViewModel: PlayerViewModel
     
     private let openAlbumLabel: String = "Open album"
-    private let albumTitle: String = "Album Name"
     @Binding var selectedDetent: PresentationDetent
     
     @State private var presentationBlur: CGFloat = 7
@@ -64,7 +63,7 @@ struct PlayerBottomSheetView: View {
             ColorPalette.appBackground.edgesIgnoringSafeArea(.all)
             capsuleView
             VStack(alignment: .center, spacing: 0) {
-                Text(albumTitle)
+                Text(playerViewModel.currentSong.collectionName)
                     .font(Font.system(size: 16).bold())
                     .multilineTextAlignment(.center)
                     .foregroundColor(ColorPalette.primaryText)
@@ -90,8 +89,8 @@ struct PlayerBottomSheetView: View {
     }
 }
 
-struct PlayerBottomSheetView_Previews: PreviewProvider {
+struct PlayerSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerBottomSheetView(playerViewModel: PlayerViewModel(currentSong: Song.getInstance()), selectedDetent: .constant(.medium))
+        PlayerSheetView(playerViewModel: PlayerViewModel(currentSong: Song.getInstance()), selectedDetent: .constant(.medium))
     }
 }

@@ -46,11 +46,14 @@ struct PlayerScreen: View {
         .onAppear {
             setupOrientation()
         }
+        .task {
+            await playerViewModel.fetchSongsList()
+        }
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
             setupOrientation()
         }
         .sheet(isPresented: $showSongDetails) {
-            PlayerBottomSheetView(playerViewModel: playerViewModel, selectedDetent: $selectedDetent)
+            PlayerSheetView(playerViewModel: playerViewModel, selectedDetent: $selectedDetent)
                 .presentationDetents(availableDetents, selection: $selectedDetent)
                 .presentationDragIndicator(.hidden)
         }

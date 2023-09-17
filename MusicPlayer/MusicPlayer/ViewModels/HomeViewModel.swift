@@ -7,15 +7,12 @@
 
 import Foundation
 import SwiftUI
-import Combine
-
 
 class HomeViewModel: SongsListViewModel {
     @Published var searchTerm: String = ""
     private let placeholderTerm: String = "Bob Dylan"
     
     private let iTunesAPI: iTunesInterfaceAPI = iTunesInterfaceAPI()
-    private var subscriptions = Set<AnyCancellable>()
     
     override init() {
         super.init()
@@ -49,8 +46,8 @@ class HomeViewModel: SongsListViewModel {
         
         // Fetch songs
         if let songsList: SongsList = await iTunesAPI.sendRequest(type: .SongsListSearch(term: searchTerm, limit: limitPages, offset: currentPage)) {
-            self.currentPage += 1
-            self.songsList.results.append(contentsOf: songsList.results)
+            currentPage += 1
+            insertNewSongs(newsSongs: songsList)
         }
         
         if showProgress {

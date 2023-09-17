@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol InstanceProvider {
+protocol InstanceProvider: Equatable {
     static func getInstance() -> Self
 }

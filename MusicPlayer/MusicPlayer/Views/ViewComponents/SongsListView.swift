@@ -12,7 +12,10 @@ struct SongsListView: View {
     
     var body: some View {
         if viewModel.isSearching {
-            CustomProgressView()
+            ZStack(alignment: .center) {
+                ColorPalette.appBackground.ignoresSafeArea(.all)
+                CustomProgressView()
+            }
         } else {
             List {
                 ForEach(viewModel.songsList.results) { song in
@@ -27,7 +30,9 @@ struct SongsListView: View {
                 .listRowBackground(ColorPalette.appBackground)
                 .listRowSeparator(.hidden, edges: .all)
                 .listRowInsets( .init(top: 8, leading: 16, bottom: 8, trailing: 0))
-                CustomProgressView()
+                ColorPalette.appBackground.ignoresSafeArea(.all)
+                    .listRowBackground(ColorPalette.appBackground)
+                    .listRowSeparator(.hidden, edges: .all)
                     .onAppear {
                         Task(priority: .high) {
                             await viewModel.loadMore(showProgress: false)
