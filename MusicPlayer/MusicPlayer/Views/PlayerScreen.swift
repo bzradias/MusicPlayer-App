@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PlayerScreen: View {
-    @Environment(\.presentationMode) var presentation
+    @Environment(\.dismiss) var dismiss
     @State private var orientation = UIDevice.current.orientation
     @State private var showSongDetails: Bool = false
-    @State private var selectedDetent: PresentationDetent = .fraction(0.22)
-    private let availableDetents: Set<PresentationDetent> = [.fraction(0.22), .large]
+    @State private var selectedDetent: PresentationDetent = SheetViewSizes.smallest
+    private let availableDetents: Set<PresentationDetent> = [SheetViewSizes.smallest, SheetViewSizes.largest]
     
     @State private var iconStyle: SongIconStyle = .Large
     private var iconViewSize: CGFloat {
@@ -62,7 +62,7 @@ struct PlayerScreen: View {
     private var customNavBar: some View {
         HStack(alignment: .bottom, spacing: 0) {
             GenericButton(action: {
-                self.presentation.wrappedValue.dismiss()
+                dismiss.callAsFunction()
             }, content: Image("ic-arrow-left").resizable().frame(width: 24, height: 24))
             .padding(.horizontal, 24)
             .padding(.vertical, 12)

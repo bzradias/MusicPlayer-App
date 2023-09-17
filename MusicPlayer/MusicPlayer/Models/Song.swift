@@ -9,18 +9,18 @@ import Foundation
 
 // MARK: - Song
 struct Song: Codable, Identifiable, Hashable, InstanceProvider {
-    let wrapperType: String
+    let wrapperType: String?
     let collectionType: String?
-    let artistID, collectionID: Int
+    let artistID, collectionID: Int?
     let amgArtistID: Int?
-    let artistName, collectionName, collectionCensoredName: String
-    let artistViewURL, collectionViewURL: String
-    let artworkUrl60, artworkUrl100: String
-    let collectionPrice: Double
-    let collectionExplicitness: String
-    let trackCount: Int
+    let artistName, collectionName, collectionCensoredName: String?
+    let artistViewURL, collectionViewURL: String?
+    let artworkUrl60, artworkUrl100: String?
+    let collectionPrice: Double?
+    let collectionExplicitness: String?
+    let trackCount: Int?
     let copyright: String?
-    let country, currency, releaseDate, primaryGenreName: String
+    let country, currency, releaseDate, primaryGenreName: String?
     let kind: String?
     let id: Int?
     let trackName, trackCensoredName: String?

@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+struct SheetViewSizes {
+    static public var smallest: PresentationDetent = .fraction(0.22)
+    static public var largest: PresentationDetent = .large
+}
+
 struct PlayerSheetView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject public var playerViewModel: PlayerViewModel
     
     private let openAlbumLabel: String = "Open album"
@@ -17,7 +23,7 @@ struct PlayerSheetView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            if selectedDetent == .large {
+            if selectedDetent == SheetViewSizes.largest {
                 modalView
             } else {
                 bottomSheetView
@@ -26,6 +32,10 @@ struct PlayerSheetView: View {
         .animation(.linear, value: selectedDetent)
         .blur(radius: presentationBlur)
         .onChange(of: selectedDetent, perform: { newValue in
+            if newValue == SheetViewSizes.smallest {
+                dismiss.callAsFunction()
+            }
+            
             triggerBlurEffect()
         })
         .onAppear {
@@ -42,7 +52,7 @@ struct PlayerSheetView: View {
                 SongDescriptionView(song: playerViewModel.currentSong, songDescriptionStyle: .Medium)
                 HStack(alignment: .center, spacing: 16) {
                     Button {
-                        selectedDetent = .large
+                        selectedDetent = SheetViewSizes.largest
                     } label: {
                         Image("ic-playlist")
                             .resizable()
@@ -63,7 +73,7 @@ struct PlayerSheetView: View {
             ColorPalette.appBackground.edgesIgnoringSafeArea(.all)
             capsuleView
             VStack(alignment: .center, spacing: 0) {
-                Text(playerViewModel.currentSong.collectionName)
+                Text(playerViewModel.currentSong.collectionName ?? "-")
                     .font(Font.system(size: 16).bold())
                     .multilineTextAlignment(.center)
                     .foregroundColor(ColorPalette.primaryText)

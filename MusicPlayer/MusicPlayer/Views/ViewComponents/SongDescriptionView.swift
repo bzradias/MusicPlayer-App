@@ -13,10 +13,10 @@ struct SongDescriptionView: View {
     
     var body: some View {
         VStack(alignment: songDescriptionStyle.alignment, spacing: songDescriptionStyle.spacing) {
-            Text(song.trackName ?? "")
+            Text(song.trackName ?? "-")
                 .font(songDescriptionStyle.songFont)
                 .foregroundColor(ColorPalette.primaryText)
-            Text(song.artistName)
+            Text(song.artistName ?? "-")
                 .font(songDescriptionStyle.artistFont)
                 .foregroundColor(ColorPalette.secondaryText)
         }

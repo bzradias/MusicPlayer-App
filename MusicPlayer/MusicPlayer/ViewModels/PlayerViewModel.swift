@@ -13,12 +13,17 @@ class PlayerViewModel: SongsListViewModel {
     
     @MainActor
     override func fetchSongsList(showProgress: Bool = true) async {
+        guard let collectionID: Int = currentSong.collectionID else {
+            LogHandler.shared.error("No collection ID found")
+            return
+        }
+        
         if showProgress {
             isSearching = true
         }
         
-        // Fetch songs
-        if let songsList: SongsList = await iTunesAPI.sendRequest(type: .AlbumSearch(collectionID: currentSong.collectionID)) {
+        // Fetch album songs
+        if let songsList: SongsList = await iTunesAPI.sendRequest(type: .AlbumSearch(collectionID: collectionID)) {
             self.currentPage += 1
             insertNewSongs(newsSongs: songsList)
         }
