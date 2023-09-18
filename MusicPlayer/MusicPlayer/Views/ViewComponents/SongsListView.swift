@@ -9,12 +9,25 @@ import SwiftUI
 
 struct SongsListView: View {
     @StateObject public var viewModel: SongsListViewModel
+    private let noResultsLabel: String = "No results."
     
     var body: some View {
         if viewModel.isSearching {
             ZStack(alignment: .center) {
                 ColorPalette.appBackground.ignoresSafeArea(.all)
                 CustomProgressView()
+            }
+        } else if viewModel.songsList.results.isEmpty {
+            ZStack(alignment: .center) {
+                Text(noResultsLabel)
+                    .font(Fonts.regularLargeBody)
+                    .foregroundColor(ColorPalette.secondaryText)
+                    .onAppear {
+                        viewModel.clear()
+                        Task(priority: .high) {
+                            await viewModel.loadMore(showProgress: false)
+                        }
+                    }
             }
         } else {
             List {
@@ -41,9 +54,6 @@ struct SongsListView: View {
             }
             .refreshable {
                 await viewModel.fetchSongsList(showProgress: false)
-            }
-            .onAppear {
-                viewModel.clear()
             }
             .scrollIndicators(.hidden)
             .listStyle(.plain)

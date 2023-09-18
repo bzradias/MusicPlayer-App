@@ -43,7 +43,7 @@ class PlayerViewModel: SongsListViewModel {
         // Fetch album songs
         if let songsList: SongsList = await iTunesAPI.sendRequest(type: .AlbumSearch(collectionID: collectionID)) {
             self.currentPage += 1
-            insertNewSongs(newsSongs: songsList)
+            insertNewSongs(newSongs: songsList)
         }
         
         if showProgress {

@@ -10,7 +10,7 @@ import SwiftUI
 
 class HomeViewModel: SongsListViewModel {
     @Published var searchTerm: String = ""
-    private let placeholderTerm: String = "Bob Dylan"
+    private var placeholderTerm: String = "Bob Dylan"
     
     private let iTunesAPI: iTunesInterfaceAPI = iTunesInterfaceAPI()
     
@@ -47,11 +47,13 @@ class HomeViewModel: SongsListViewModel {
         // Fetch songs
         if let songsList: SongsList = await iTunesAPI.sendRequest(type: .SongsListSearch(term: searchTerm, limit: limitPages, offset: currentPage)) {
             currentPage += 1
-            insertNewSongs(newsSongs: songsList)
+            insertNewSongs(newSongs: songsList)
         }
         
         if showProgress {
             isSearching = false
         }
+        
+        self.placeholderTerm = searchTerm
     }
 }

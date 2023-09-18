@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class SongsListViewModel: ObservableObject {
-    @Published public var songsList: SongsList = SongsList.getInstance()
+    @Published public var songsList: SongsList = SongsList.getEmptyInstance()
     @Published var isSearching: Bool = false
     
     internal var subscriptions = Set<AnyCancellable>()
@@ -31,8 +31,8 @@ class SongsListViewModel: ObservableObject {
     }
     
     @MainActor
-    public func insertNewSongs(newsSongs: SongsList) {
-        newsSongs.results.forEach { song in
+    public func insertNewSongs(newSongs: SongsList) {
+        newSongs.results.forEach { song in
             guard let songName: String = song.trackName, !songName.isEmpty else { return }
             
             if !self.songsList.results.contains(song) {

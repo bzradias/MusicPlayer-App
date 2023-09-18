@@ -19,6 +19,7 @@ struct SongsListScreen: View {
                 .background(ColorPalette.appBackground.ignoresSafeArea())
                 .searchable(text: $viewModel.searchTerm)
                 .task {
+                    viewModel.clear()
                     await viewModel.fetchSongsList()
                 }
         }
