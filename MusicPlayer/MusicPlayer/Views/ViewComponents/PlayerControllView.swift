@@ -55,7 +55,6 @@ struct PlayerControllView: View {
                         playerViewModel.pausePlayer()
                     } else {
                         playerViewModel.startPlayer()
-                        playerViewModel.audioPlayer.actionAtItemEnd = .advance
                     }
                 }, content: ZStack(alignment: .center) {
                     Circle()

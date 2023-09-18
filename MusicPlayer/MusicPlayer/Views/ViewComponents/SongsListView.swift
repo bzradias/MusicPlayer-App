@@ -40,7 +40,7 @@ struct SongsListView: View {
                     }
             }
             .refreshable {
-                await viewModel.fetchSongsList(showProgress: true)
+                await viewModel.fetchSongsList(showProgress: false)
             }
             .onAppear {
                 viewModel.clear()

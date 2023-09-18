@@ -22,6 +22,13 @@ class PlayerViewModel: SongsListViewModel {
         return audioPlayer.isPlaying
     }
     
+    init(currentSong: Song) {
+        self.currentSong = currentSong
+        super.init()
+        
+        self.setupPlayer()
+    }
+    
     @MainActor
     override func fetchSongsList(showProgress: Bool = true) async {
         guard let collectionID: Int = currentSong.collectionID else {
@@ -42,13 +49,6 @@ class PlayerViewModel: SongsListViewModel {
         if showProgress {
             isSearching = false
         }
-    }
-    
-    init(currentSong: Song) {
-        self.currentSong = currentSong
-        super.init()
-        
-        self.setupPlayer()
     }
     
     private func setupPlayer() {
