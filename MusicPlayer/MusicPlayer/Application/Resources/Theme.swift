@@ -24,5 +24,8 @@ class Theme {
         UINavigationBar.appearance().scrollEdgeAppearance = navigationAppearance
 
         UINavigationBar.appearance().tintColor = tintColor ?? titleColor ?? .black
+        
+        let thumbImage = UIImage(diameter: 3, color: ColorPalette.sliderHighlightBackground.toUIColor())
+        UISlider.appearance().setThumbImage(thumbImage, for: .normal)
     }
 }

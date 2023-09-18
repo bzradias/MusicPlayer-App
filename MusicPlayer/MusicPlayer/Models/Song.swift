@@ -49,6 +49,13 @@ struct Song: Codable, Identifiable, Hashable, InstanceProvider {
         case artworkUrl30, trackPrice, trackExplicitness, discCount, discNumber, trackNumber, trackTimeMillis, isStreamable, contentAdvisoryRating
     }
     
+    public func getAudioURL() -> URL? {
+        guard let newSong: String = self.previewURL, let songURL: URL = URL(string: newSong) else {
+            return nil
+        }
+        return songURL
+    }
+    
     static func getInstance() -> Song {
         return Song(wrapperType: "track", collectionType: "song", artistID: 462006, collectionID: 192688369, amgArtistID: nil, artistName: "", collectionName: "Bob Dylan", collectionCensoredName: "Bob Dylan's Greatest Hits", artistViewURL: "Blowin' In the Wind", collectionViewURL: "Bob Dylan's Greatest Hits", artworkUrl60: "Blowin' In the Wind", artworkUrl100: "https://music.apple.com/us/artist/bob-dylan/462006?uo=4", collectionPrice: 0, collectionExplicitness: "https://music.apple.com/us/album/blowin-in-the-wind/192688369?i=192688540&uo=4", trackCount: 1, copyright: nil, country: "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/dc/e7/e3/dce7e385-5b40-bcda-4d09-ae4faab692ed/dj.fvugskmg.jpg/30x30bb.jpg", currency: "", releaseDate: "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/dc/e7/e3/dce7e385-5b40-bcda-4d09-ae4faab692ed/dj.fvugskmg.jpg/100x100bb.jpg", primaryGenreName: "", kind: "", id: UUID().hashValue, trackName: "notExplicit", trackCensoredName: "notExplicit", trackViewURL: "", previewURL: "", artworkUrl30: "", trackPrice: 2, trackExplicitness: nil, discCount: nil, discNumber: nil, trackNumber: 1, trackTimeMillis: nil, isStreamable: nil, contentAdvisoryRating: nil)
     }

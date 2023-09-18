@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		334DA94D2AB80F85008EBC6B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334DA94C2AB80F85008EBC6B /* UIImageExtension.swift */; };
 		3367AD4C2AB4F83300965050 /* PlayerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367AD4B2AB4F83300965050 /* PlayerSheetView.swift */; };
 		3367AD4E2AB5234F00965050 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367AD4D2AB5234F00965050 /* Song.swift */; };
 		3367AD512AB5255A00965050 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3367AD502AB5255A00965050 /* Kingfisher */; };
@@ -17,6 +18,7 @@
 		3367AD5C2AB5441700965050 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367AD5B2AB5441700965050 /* PlayerViewModel.swift */; };
 		3367AD5E2AB54C2900965050 /* SongsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367AD5D2AB54C2900965050 /* SongsListViewModel.swift */; };
 		3367AD602AB55F1000965050 /* PublisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367AD5F2AB55F1000965050 /* PublisherExtension.swift */; };
+		336BCF1D2AB8DDFB000C6756 /* AVPlayerSongItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336BCF1C2AB8DDFB000C6756 /* AVPlayerSongItem.swift */; };
 		33734ED62AB7BE3D0089C6F2 /* AVPlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33734ED52AB7BE3D0089C6F2 /* AVPlayerExtension.swift */; };
 		33734ED82AB7DD8F0089C6F2 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33734ED72AB7DD8F0089C6F2 /* SplashScreen.swift */; };
 		33734EDF2AB7E90D0089C6F2 /* sf-pro-display-cufonfonts in Resources */ = {isa = PBXBuildFile; fileRef = 33734EDE2AB7E90C0089C6F2 /* sf-pro-display-cufonfonts */; };
@@ -63,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		334DA94C2AB80F85008EBC6B /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3367AD4B2AB4F83300965050 /* PlayerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSheetView.swift; sourceTree = "<group>"; };
 		3367AD4D2AB5234F00965050 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		3367AD532AB539E000965050 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		3367AD5B2AB5441700965050 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		3367AD5D2AB54C2900965050 /* SongsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsListViewModel.swift; sourceTree = "<group>"; };
 		3367AD5F2AB55F1000965050 /* PublisherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtension.swift; sourceTree = "<group>"; };
+		336BCF1C2AB8DDFB000C6756 /* AVPlayerSongItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerSongItem.swift; sourceTree = "<group>"; };
 		33734ED52AB7BE3D0089C6F2 /* AVPlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerExtension.swift; sourceTree = "<group>"; };
 		33734ED72AB7DD8F0089C6F2 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		33734EDE2AB7E90C0089C6F2 /* sf-pro-display-cufonfonts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "sf-pro-display-cufonfonts"; path = "MusicPlayer/Application/sf-pro-display-cufonfonts"; sourceTree = SOURCE_ROOT; };
@@ -245,6 +249,7 @@
 			children = (
 				339714F22AB3F65B009707FD /* SongsList.swift */,
 				3367AD4D2AB5234F00965050 /* Song.swift */,
+				336BCF1C2AB8DDFB000C6756 /* AVPlayerSongItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				339714E02AB2C8BE009707FD /* View.swift */,
 				3367AD5F2AB55F1000965050 /* PublisherExtension.swift */,
 				33734ED52AB7BE3D0089C6F2 /* AVPlayerExtension.swift */,
+				334DA94C2AB80F85008EBC6B /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				3367AD5C2AB5441700965050 /* PlayerViewModel.swift in Sources */,
 				339714DF2AB2C1DB009707FD /* Theme.swift in Sources */,
 				339714EA2AB2CA9A009707FD /* SongDescriptionView.swift in Sources */,
+				336BCF1D2AB8DDFB000C6756 /* AVPlayerSongItem.swift in Sources */,
 				339714F82AB42233009707FD /* PlayerControllView.swift in Sources */,
 				339714E82AB2CA30009707FD /* SongIconView.swift in Sources */,
 				339714D82AB2B07C009707FD /* ColorPalette.swift in Sources */,
@@ -453,6 +460,7 @@
 				3367AD5E2AB54C2900965050 /* SongsListViewModel.swift in Sources */,
 				33734ED62AB7BE3D0089C6F2 /* AVPlayerExtension.swift in Sources */,
 				3367AD4C2AB4F83300965050 /* PlayerSheetView.swift in Sources */,
+				334DA94D2AB80F85008EBC6B /* UIImageExtension.swift in Sources */,
 				339714E12AB2C8BE009707FD /* View.swift in Sources */,
 				3367AD4E2AB5234F00965050 /* Song.swift in Sources */,
 				339714E42AB2C8FF009707FD /* RoundedCornerShape.swift in Sources */,

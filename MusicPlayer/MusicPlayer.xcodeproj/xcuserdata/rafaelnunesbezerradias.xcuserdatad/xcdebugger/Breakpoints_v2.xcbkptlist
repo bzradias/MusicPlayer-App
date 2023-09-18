@@ -30,8 +30,8 @@
             filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "fetchSongsList(showProgress:)"
             landmarkType = "7">
             <Locations>
@@ -101,22 +101,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4F7AE9B8-837A-4CC6-8F82-433D244B86AD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MusicPlayer/Views/ViewComponents/PlayerControllView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "remainingSongTimeLabel"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E798631B-C5A8-4992-A974-765EE4967C3B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -165,62 +149,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "84CA1FFA-42C4-4CCE-A6D3-58668389130E"
+            uuid = "6D10F7CD-1342-486B-81CF-816B363565D2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusicPlayer/Protocols/SongsListViewModel.swift"
+            filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "loadMore(showProgress:)"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "playTrack(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A93465B-5D2F-4961-AD13-F7C921A20EB0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "setupSongsQueue(songsListQueue:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "84CA1FFA-42C4-4CCE-A6D3-58668389130E - c585adcee459a6a5"
+                  uuid = "4A93465B-5D2F-4961-AD13-F7C921A20EB0 - 9c4df79437d31dee"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MusicPlayer.SongsListViewModel.loadMore(showProgress: Swift.Bool) async -&gt; ()"
+                  symbolName = "MusicPlayer.PlayerViewModel.setupSongsQueue(songsListQueue: Swift.Array&lt;MusicPlayer.Song&gt;) -&gt; ()"
                   moduleName = "MusicPlayer"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/Protocols/SongsListViewModel.swift"
+                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/ViewModels/PlayerViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "112">
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "64">
                </Location>
                <Location
-                  uuid = "84CA1FFA-42C4-4CCE-A6D3-58668389130E - e14880673bf3ac6a"
+                  uuid = "4A93465B-5D2F-4961-AD13-F7C921A20EB0 - 9f451417e8cdaae1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) await resume partial function for MusicPlayer.SongsListViewModel.loadMore(showProgress: Swift.Bool) async -&gt; ()"
+                  symbolName = "closure #1 (MusicPlayer.Song) -&gt; () in MusicPlayer.PlayerViewModel.setupSongsQueue(songsListQueue: Swift.Array&lt;MusicPlayer.Song&gt;) -&gt; ()"
                   moduleName = "MusicPlayer"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/Protocols/SongsListViewModel.swift"
+                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/ViewModels/PlayerViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "84CA1FFA-42C4-4CCE-A6D3-58668389130E - 44322f4bf46cbd8c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for MusicPlayer.SongsListViewModel.loadMore(showProgress: Swift.Bool) async -&gt; ()"
-                  moduleName = "MusicPlayer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/Protocols/SongsListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "188">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -228,17 +213,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DEB92A84-4CEB-4876-B474-909DE4B099CD"
+            uuid = "60A03DAB-07D6-4CB9-8EC7-5106D051E1A3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusicPlayer/Views/ViewComponents/SongsListView.swift"
+            filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "firstSetupPlayer(currentSong:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

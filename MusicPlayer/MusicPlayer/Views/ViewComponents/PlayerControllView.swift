@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PlayerControllView: View {
     @StateObject public var playerViewModel: PlayerViewModel
+    private let playerEndTimeNotification = NotificationCenter.default.publisher(for: .AVPlayerItemDidPlayToEndTime)
     
     private var remainingSongTimeLabel: String {
         guard let item = playerViewModel.currentAudioPlayer, !item.duration.seconds.isNaN else {
@@ -28,7 +29,7 @@ struct PlayerControllView: View {
                 SongDescriptionView(song: playerViewModel.currentSong, songDescriptionStyle: .Large)
                 Spacer()
             }
-            VStack {
+            VStack(spacing: 8) {
                 Slider(value: $playerViewModel.playerTime, in: 0...1, onEditingChanged: { isEditing in
                     if isEditing {
                         playerViewModel.pausePlayer()
@@ -37,6 +38,7 @@ struct PlayerControllView: View {
                     }
                 })
                 .tint(ColorPalette.sliderHighlightBackground)
+                .frame(height: 12)
                 HStack {
                     Text("0:00")
                         .font(Fonts.mediumSmallBody)
@@ -49,7 +51,7 @@ struct PlayerControllView: View {
             }
             HStack(alignment: .center, spacing: 20) {
                 GenericButton(action: {
-                    // TODO: Implementar comportamento
+                    playerViewModel.previousTrack()
                 }, content: Image("ic-backward").resizable().frame(width: 32, height: 32))
                 
                 GenericButton(action: {
@@ -68,7 +70,7 @@ struct PlayerControllView: View {
                 .frame(width: 64, height: 64)
                 
                 GenericButton(action: {
-                    // TODO: Implementar comportamento
+                    playerViewModel.nextTrack()
                 }, content: Image("ic-forward").resizable().frame(width: 32, height: 32))
             }
         }
@@ -77,6 +79,9 @@ struct PlayerControllView: View {
         }
         .onDisappear {
             playerViewModel.pausePlayer()
+        }
+        .onReceive(playerEndTimeNotification) { notification in
+            playerViewModel.nextTrack()
         }
     }
 }

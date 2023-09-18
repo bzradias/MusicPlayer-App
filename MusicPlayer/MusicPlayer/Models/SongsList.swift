@@ -9,16 +9,19 @@ import Foundation
 
 /// MARK: - SongsList
 struct SongsList: Codable, InstanceProvider {
-    var resultCount: Int
+    var resultCount: Int {
+        get { return results.count }
+        set { }
+    }
     var results: [Song]
     
     static func getInstance() -> SongsList {
         let songs: [Song] = [Song.getInstance(), Song.getInstance(), Song.getInstance()]
-        return SongsList(resultCount: songs.count, results: songs)
+        return SongsList(results: songs)
     }
     
     static func getEmptyInstance() -> SongsList {
         let songs: [Song] = []
-        return SongsList(resultCount: songs.count, results: songs)
+        return SongsList(results: songs)
     }
 }
