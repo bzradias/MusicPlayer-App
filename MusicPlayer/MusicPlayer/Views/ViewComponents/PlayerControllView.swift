@@ -39,10 +39,12 @@ struct PlayerControllView: View {
                 .tint(ColorPalette.sliderHighlightBackground)
                 HStack {
                     Text("0:00")
-                        .foregroundColor(ColorPalette.primaryText)
+                        .font(Fonts.mediumSmallBody)
+                        .foregroundColor(ColorPalette.playerTimeText)
                     Spacer()
                     Text(remainingSongTimeLabel)
-                        .foregroundColor(ColorPalette.primaryText)
+                        .font(Fonts.mediumSmallBody)
+                        .foregroundColor(ColorPalette.playerTimeText)
                 }
             }
             HStack(alignment: .center, spacing: 20) {

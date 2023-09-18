@@ -19,6 +19,8 @@
 		3367AD602AB55F1000965050 /* PublisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367AD5F2AB55F1000965050 /* PublisherExtension.swift */; };
 		33734ED62AB7BE3D0089C6F2 /* AVPlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33734ED52AB7BE3D0089C6F2 /* AVPlayerExtension.swift */; };
 		33734ED82AB7DD8F0089C6F2 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33734ED72AB7DD8F0089C6F2 /* SplashScreen.swift */; };
+		33734EDF2AB7E90D0089C6F2 /* sf-pro-display-cufonfonts in Resources */ = {isa = PBXBuildFile; fileRef = 33734EDE2AB7E90C0089C6F2 /* sf-pro-display-cufonfonts */; };
+		33734EE12AB7E9560089C6F2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33734EE02AB7E9560089C6F2 /* Fonts.swift */; };
 		339714A82AB2A4A4009707FD /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714A72AB2A4A4009707FD /* MusicPlayerApp.swift */; };
 		339714AA2AB2A4A4009707FD /* SongsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714A92AB2A4A4009707FD /* SongsListScreen.swift */; };
 		339714AC2AB2A4A5009707FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339714AB2AB2A4A5009707FD /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		3367AD5F2AB55F1000965050 /* PublisherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtension.swift; sourceTree = "<group>"; };
 		33734ED52AB7BE3D0089C6F2 /* AVPlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerExtension.swift; sourceTree = "<group>"; };
 		33734ED72AB7DD8F0089C6F2 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		33734EDE2AB7E90C0089C6F2 /* sf-pro-display-cufonfonts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "sf-pro-display-cufonfonts"; path = "MusicPlayer/Application/sf-pro-display-cufonfonts"; sourceTree = SOURCE_ROOT; };
+		33734EE02AB7E9560089C6F2 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		339714A42AB2A4A4009707FD /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		339714A72AB2A4A4009707FD /* MusicPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerApp.swift; sourceTree = "<group>"; };
 		339714A92AB2A4A4009707FD /* SongsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsListScreen.swift; sourceTree = "<group>"; };
@@ -205,10 +209,12 @@
 		339714D22AB2A55B009707FD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				33734EDE2AB7E90C0089C6F2 /* sf-pro-display-cufonfonts */,
 				339714AB2AB2A4A5009707FD /* Assets.xcassets */,
 				339714D72AB2B07C009707FD /* ColorPalette.swift */,
 				339714DE2AB2C1DB009707FD /* Theme.swift */,
 				3367AD552AB53A4500965050 /* LogHandler.swift */,
+				33734EE02AB7E9560089C6F2 /* Fonts.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				339714AF2AB2A4A5009707FD /* Preview Assets.xcassets in Resources */,
+				33734EDF2AB7E90D0089C6F2 /* sf-pro-display-cufonfonts in Resources */,
 				339714AC2AB2A4A5009707FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +439,7 @@
 				339714DD2AB2B86F009707FD /* HomeViewModel.swift in Sources */,
 				339714A82AB2A4A4009707FD /* MusicPlayerApp.swift in Sources */,
 				3367AD582AB53C5F00965050 /* iTunesInterfaceAPI.swift in Sources */,
+				33734EE12AB7E9560089C6F2 /* Fonts.swift in Sources */,
 				339714EF2AB3E0BA009707FD /* PlayerScreen.swift in Sources */,
 				3367AD5C2AB5441700965050 /* PlayerViewModel.swift in Sources */,
 				339714DF2AB2C1DB009707FD /* Theme.swift in Sources */,
@@ -613,9 +621,10 @@
 				DEVELOPMENT_TEAM = TPFSUHXK72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicPlayer/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -643,9 +652,10 @@
 				DEVELOPMENT_TEAM = TPFSUHXK72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicPlayer/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -58,6 +58,7 @@ struct PlayerSheetView: View {
                             .resizable()
                             .frame(width: 24, height: 24)
                         Text(openAlbumLabel)
+                            .font(Fonts.mediumLargeBody)
                             .foregroundColor(ColorPalette.primaryText)
                     }
                     Spacer()
@@ -74,7 +75,7 @@ struct PlayerSheetView: View {
             capsuleView
             VStack(alignment: .center, spacing: 0) {
                 Text(playerViewModel.currentSong.collectionName ?? "-")
-                    .font(Font.system(size: 16).bold())
+                    .font(Fonts.boldLargeBody)
                     .multilineTextAlignment(.center)
                     .foregroundColor(ColorPalette.primaryText)
                     .frame(width: 390, height: 50, alignment: .center)
