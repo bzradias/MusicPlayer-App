@@ -2,6 +2,10 @@
 ## Overview
 MusicPlayer is an iOS application that allows users to search for songs using the Apple iTunes API based on their text input. The app offers a seamless music discovery experience with four primary screens and a convenient bottom sheet for additional options.
 
+Songs Screen               |  Player Screen            | Album Details
+:-------------------------:|:-------------------------:|:-------------------------:
+![Simulator Screen Shot - iPhone 14 Pro - 2023-09-19 at 13 06 09](https://github.com/RafaNunnes/MusicPlayer-App/assets/14022126/5562849a-a87e-40d1-9ffc-d2ee43e0cb2e) | ![Simulator Screen Shot - iPhone 14 Pro - 2023-09-19 at 13 20 37](https://github.com/RafaNunnes/MusicPlayer-App/assets/14022126/fbea85f3-684c-424b-a0e8-2636529fb622) | ![Simulator Screen Shot - iPhone 14 Pro - 2023-09-19 at 13 21 06](https://github.com/RafaNunnes/MusicPlayer-App/assets/14022126/433885cb-f4eb-4c1c-a1e5-cc8526f81d5c)
+
 
 ## Key Features
 - Songs Screen (Home): This screen displays a list of songs matching the user's search query. Users can scroll through the list to find songs they like.
