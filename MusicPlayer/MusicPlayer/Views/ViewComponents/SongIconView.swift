@@ -13,7 +13,7 @@ struct SongIconView: View {
     public var iconStyle: SongIconStyle = .Small
     
     private var iconImageName: String {
-        return iconStyle == .Small ? (song.artworkUrl60 ?? "") : (song.artworkUrl100 ?? "")
+        return iconStyle == .Small ? (song.artworkUrl60 ?? "") : (song.artworkUrl200 ?? song.artworkUrl100 ?? "")
     }
     
     var body: some View {
