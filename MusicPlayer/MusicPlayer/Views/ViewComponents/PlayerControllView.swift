@@ -20,7 +20,7 @@ struct PlayerControllView: View {
         let minutes = remaining.seconds / 60
         let seconds = remaining.seconds
         
-        return "-\(String(format: "%.0f:%.0f", minutes, seconds))"
+        return "-\(String(format: "%.0f:%02.0f", minutes, seconds))"
     }
     
     var body: some View {

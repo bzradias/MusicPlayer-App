@@ -28,6 +28,7 @@ class SongsListViewModel: ObservableObject {
     
     @MainActor
     public func loadMore() async {
+        LogHandler.shared.info("Loading more...")
         await fetchSongsList(searchType: .LoadingMore)
     }
     

@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 class APIManager {
     static public func sendRequest<DecodableObject: Codable>(request: URLRequest) async -> DecodableObject? {
         let session = URLSession.shared

@@ -10,6 +10,7 @@ import SwiftUI
 struct SongsListView: View {
     @StateObject public var viewModel: SongsListViewModel
     private let noResultsLabel: String = "No results."
+    private let loadingMoreLabel: String = "Loading more.."
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -29,6 +30,13 @@ struct SongsListView: View {
                     ForEach(viewModel.songsList.results) { song in
                         ZStack(alignment: .leading) {
                             SongCardView(song: song)
+                                .onAppear {
+                                    if viewModel.songsList.results.last == song {
+                                        Task(priority: .high) {
+                                            await viewModel.loadMore()
+                                        }
+                                    }
+                                }
                             NavigationLink(destination: PlayerScreen(playerViewModel: PlayerViewModel(currentSong: song))) {
                                 EmptyView()
                             }
@@ -43,7 +51,7 @@ struct SongsListView: View {
                         ColorPalette.appBackground.ignoresSafeArea(.all)
                         if viewModel.isLoadingMore {
                             HStack(alignment: .center, spacing: 16) {
-                                Text("Loading more..")
+                                Text(loadingMoreLabel)
                                     .foregroundColor(ColorPalette.secondaryText)
                                 CustomProgressView()
                             }
@@ -51,11 +59,6 @@ struct SongsListView: View {
                     }
                     .listRowBackground(ColorPalette.appBackground)
                     .listRowSeparator(.hidden, edges: .all)
-                    .onAppear {
-                        Task(priority: .high) {
-                            await viewModel.loadMore()
-                        }
-                    }
                 }
                 .refreshable {
                     await viewModel.fetchSongsList(searchType: .None)

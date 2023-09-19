@@ -26,10 +26,6 @@
 		339714A82AB2A4A4009707FD /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714A72AB2A4A4009707FD /* MusicPlayerApp.swift */; };
 		339714AA2AB2A4A4009707FD /* SongsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714A92AB2A4A4009707FD /* SongsListScreen.swift */; };
 		339714AC2AB2A4A5009707FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339714AB2AB2A4A5009707FD /* Assets.xcassets */; };
-		339714AF2AB2A4A5009707FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339714AE2AB2A4A5009707FD /* Preview Assets.xcassets */; };
-		339714B92AB2A4A6009707FD /* MusicPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714B82AB2A4A6009707FD /* MusicPlayerTests.swift */; };
-		339714C32AB2A4A6009707FD /* MusicPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714C22AB2A4A6009707FD /* MusicPlayerUITests.swift */; };
-		339714C52AB2A4A6009707FD /* MusicPlayerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714C42AB2A4A6009707FD /* MusicPlayerUITestsLaunchTests.swift */; };
 		339714D82AB2B07C009707FD /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714D72AB2B07C009707FD /* ColorPalette.swift */; };
 		339714DB2AB2B0C3009707FD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714DA2AB2B0C3009707FD /* ColorExtension.swift */; };
 		339714DD2AB2B86F009707FD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339714DC2AB2B86F009707FD /* HomeViewModel.swift */; };
@@ -84,12 +80,8 @@
 		339714A72AB2A4A4009707FD /* MusicPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerApp.swift; sourceTree = "<group>"; };
 		339714A92AB2A4A4009707FD /* SongsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsListScreen.swift; sourceTree = "<group>"; };
 		339714AB2AB2A4A5009707FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		339714AE2AB2A4A5009707FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		339714B42AB2A4A6009707FD /* MusicPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		339714B82AB2A4A6009707FD /* MusicPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerTests.swift; sourceTree = "<group>"; };
 		339714BE2AB2A4A6009707FD /* MusicPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		339714C22AB2A4A6009707FD /* MusicPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerUITests.swift; sourceTree = "<group>"; };
-		339714C42AB2A4A6009707FD /* MusicPlayerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		339714D72AB2B07C009707FD /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		339714DA2AB2B0C3009707FD /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		339714DC2AB2B86F009707FD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -146,8 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				339714A62AB2A4A4009707FD /* MusicPlayer */,
-				339714B72AB2A4A6009707FD /* MusicPlayerTests */,
-				339714C12AB2A4A6009707FD /* MusicPlayerUITests */,
 				339714A52AB2A4A4009707FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,34 +161,8 @@
 				339714D52AB2A58C009707FD /* Models */,
 				339714D42AB2A583009707FD /* ViewModels */,
 				339714D32AB2A575009707FD /* Views */,
-				339714AD2AB2A4A5009707FD /* Preview Content */,
 			);
 			path = MusicPlayer;
-			sourceTree = "<group>";
-		};
-		339714AD2AB2A4A5009707FD /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				339714AE2AB2A4A5009707FD /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		339714B72AB2A4A6009707FD /* MusicPlayerTests */ = {
-			isa = PBXGroup;
-			children = (
-				339714B82AB2A4A6009707FD /* MusicPlayerTests.swift */,
-			);
-			path = MusicPlayerTests;
-			sourceTree = "<group>";
-		};
-		339714C12AB2A4A6009707FD /* MusicPlayerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				339714C22AB2A4A6009707FD /* MusicPlayerUITests.swift */,
-				339714C42AB2A4A6009707FD /* MusicPlayerUITestsLaunchTests.swift */,
-			);
-			path = MusicPlayerUITests;
 			sourceTree = "<group>";
 		};
 		339714D12AB2A522009707FD /* Application */ = {
@@ -409,7 +373,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				339714AF2AB2A4A5009707FD /* Preview Assets.xcassets in Resources */,
 				33734EDF2AB7E90D0089C6F2 /* sf-pro-display-cufonfonts in Resources */,
 				339714AC2AB2A4A5009707FD /* Assets.xcassets in Resources */,
 			);
@@ -474,7 +437,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				339714B92AB2A4A6009707FD /* MusicPlayerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,8 +444,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				339714C32AB2A4A6009707FD /* MusicPlayerUITests.swift in Sources */,
-				339714C52AB2A4A6009707FD /* MusicPlayerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,7 +585,6 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MusicPlayer/Preview Content\"";
 				DEVELOPMENT_TEAM = TPFSUHXK72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -657,7 +616,6 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MusicPlayer/Preview Content\"";
 				DEVELOPMENT_TEAM = TPFSUHXK72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
