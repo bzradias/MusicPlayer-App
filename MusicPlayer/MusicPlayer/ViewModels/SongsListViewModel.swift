@@ -8,20 +8,27 @@
 import Foundation
 import Combine
 
+enum SearchType {
+    case None
+    case LoadingMore
+    case SearchingTerm
+}
+
 class SongsListViewModel: ObservableObject {
     @Published public var songsList: SongsList = SongsList.getEmptyInstance()
     @Published var isSearching: Bool = false
+    @Published var isLoadingMore: Bool = false
     
     internal var subscriptions = Set<AnyCancellable>()
     
     internal let limitPages: Int = 20
-    internal var currentPage: Int = 0
+    internal var currentPage: Int = 1
     
-    public func fetchSongsList(showProgress: Bool = true) async { }
+    public func fetchSongsList(searchType: SearchType) async { }
     
     @MainActor
-    public func loadMore(showProgress: Bool) async {
-        await fetchSongsList(showProgress: showProgress)
+    public func loadMore() async {
+        await fetchSongsList(searchType: .LoadingMore)
     }
     
     @MainActor
@@ -32,11 +39,14 @@ class SongsListViewModel: ObservableObject {
     
     @MainActor
     public func insertNewSongs(newSongs: SongsList) {
-        newSongs.results.forEach { song in
+        newSongs.results.forEach { [weak self] song in
+            guard let `self` = self else { return }
+            
             guard let songName: String = song.trackName, !songName.isEmpty else { return }
             
             if !self.songsList.results.contains(song) {
                 self.songsList.results.append(song)
+                LogHandler.shared.info("InsertNewSongs -> CurrentPage: \(self.currentPage) | SongCount: \(self.songsList.results.count) | SongName: \(songName)")
             }
         }
     }

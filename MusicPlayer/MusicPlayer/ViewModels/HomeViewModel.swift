@@ -10,7 +10,7 @@ import SwiftUI
 
 class HomeViewModel: SongsListViewModel {
     @Published var searchTerm: String = ""
-    private var placeholderTerm: String = "Bob Dylan"
+    private let placeholderTerm: String = "Bob Dylan"
     
     private let iTunesAPI: iTunesInterfaceAPI = iTunesInterfaceAPI()
     
@@ -23,37 +23,39 @@ class HomeViewModel: SongsListViewModel {
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] term in
                 await self?.clear()
-                await self?.fetchSongsList(term: term)
+                await self?.fetchSongsList(term: term, searchType: .SearchingTerm)
             }
             .store(in: &subscriptions)
     }
     
     public func refresh() async {
-        await self.fetchSongsList(term: searchTerm, showProgress: false)
+        await self.fetchSongsList(term: searchTerm, searchType: .None)
     }
     
-    override public func fetchSongsList(showProgress: Bool = true) async {
-        await fetchSongsList(term: searchTerm, showProgress: showProgress)
+    override public func fetchSongsList(searchType: SearchType) async {
+        await fetchSongsList(term: searchTerm, searchType: searchType)
     }
     
     @MainActor
-    public func fetchSongsList(term: String, showProgress: Bool = true) async {
+    public func fetchSongsList(term: String, searchType: SearchType) async {
         let searchTerm: String = term.isEmpty ? placeholderTerm : term
         
-        if showProgress {
-            isSearching = true
+        switch searchType {
+        case .SearchingTerm: isSearching = true
+        case .LoadingMore: isLoadingMore = true
+        case .None: break
         }
         
         // Fetch songs
-        if let songsList: SongsList = await iTunesAPI.sendRequest(type: .SongsListSearch(term: searchTerm, limit: limitPages, offset: currentPage)) {
+        if let songsList: SongsList = await iTunesAPI.sendRequest(type: .SongsListSearch(term: searchTerm, limit: limitPages, page: currentPage)) {
             currentPage += 1
             insertNewSongs(newSongs: songsList)
         }
         
-        if showProgress {
-            isSearching = false
+        switch searchType {
+        case .SearchingTerm: isSearching = false
+        case .LoadingMore: isLoadingMore = false
+        case .None: break
         }
-        
-        self.placeholderTerm = searchTerm
     }
 }

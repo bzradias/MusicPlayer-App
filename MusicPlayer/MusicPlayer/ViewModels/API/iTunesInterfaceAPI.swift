@@ -8,7 +8,7 @@
 import Foundation
 
 public enum iTunesRequestType {
-    case SongsListSearch(term: String, limit: Int, offset: Int)
+    case SongsListSearch(term: String, limit: Int, page: Int)
     case AlbumSearch(collectionID: Int)
     
     internal func getRequestURL() -> URLRequest? {
@@ -16,17 +16,21 @@ public enum iTunesRequestType {
         let timeout: TimeInterval = 10.0
         
         switch self {
-        case .SongsListSearch(let term, let limit, let offset):
-            guard let searchURL: URL = NSURL(string: "https://itunes.apple.com/search?term=\(getPreparedTerm(searchTerm: term))&entity=song&limit=\(limit)&offset=\(offset)&country=br&country=us") as? URL else {
+        case .SongsListSearch(let term, let limit, let page):
+            let offset: Int = page * limit
+            guard let searchURL: URL = NSURL(string: "https://itunes.apple.com/search?term=\(getPreparedTerm(searchTerm: term))&entity=song&limit=\(offset)&offset=\(offset)&country=br&country=us") as? URL else {
                 LogHandler.shared.error("API searchURL nil)")
                 return nil
             }
+            
+            LogHandler.shared.info("GetRequestURL -> CurrentPage: \(offset) | Limit: \(limit)")
             request = URLRequest(url: searchURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
         case .AlbumSearch(let collectionID):
             guard let searchURL: URL = NSURL(string: "https://itunes.apple.com/lookup?id=\(collectionID)&entity=song") as? URL else {
                 LogHandler.shared.error("API searchURL nil)")
                 return nil
             }
+            
             request = URLRequest(url: searchURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
         }
         return request

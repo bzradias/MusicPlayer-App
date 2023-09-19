@@ -8,15 +8,15 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "192A3998-2FF3-4A21-A23A-303E3AE00D64"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicPlayer/ViewModels/SongsListViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "fetchSongsList(term:showProgress:)"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "clear()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "fetchSongsList(showProgress:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "fetchSongsList(searchType:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -101,63 +101,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E798631B-C5A8-4992-A974-765EE4967C3B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MusicPlayer/Protocols/SongsListViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "insertNewSongs(newSongs:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E798631B-C5A8-4992-A974-765EE4967C3B - 104ff2110d635829"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MusicPlayer.Song) -&gt; () in MusicPlayer.SongsListViewModel.insertNewSongs(newsSongs: MusicPlayer.SongsList) -&gt; ()"
-                  moduleName = "MusicPlayer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/Protocols/SongsListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1176">
-               </Location>
-               <Location
-                  uuid = "E798631B-C5A8-4992-A974-765EE4967C3B - 104ff2110d635829"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MusicPlayer.Song) -&gt; () in MusicPlayer.SongsListViewModel.insertNewSongs(newsSongs: MusicPlayer.SongsList) -&gt; ()"
-                  moduleName = "MusicPlayer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/Protocols/SongsListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1212">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6D10F7CD-1342-486B-81CF-816B363565D2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "playTrack(index:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -165,64 +117,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4A93465B-5D2F-4961-AD13-F7C921A20EB0"
-            shouldBeEnabled = "Yes"
+            uuid = "C54998C3-DC77-45F4-8835-9A1B7023695E"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
+            filePath = "MusicPlayer/ViewModels/API/iTunesInterfaceAPI.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "setupSongsQueue(songsListQueue:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4A93465B-5D2F-4961-AD13-F7C921A20EB0 - 9c4df79437d31dee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MusicPlayer.PlayerViewModel.setupSongsQueue(songsListQueue: Swift.Array&lt;MusicPlayer.Song&gt;) -&gt; ()"
-                  moduleName = "MusicPlayer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/ViewModels/PlayerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "4A93465B-5D2F-4961-AD13-F7C921A20EB0 - 9f451417e8cdaae1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MusicPlayer.Song) -&gt; () in MusicPlayer.PlayerViewModel.setupSongsQueue(songsListQueue: Swift.Array&lt;MusicPlayer.Song&gt;) -&gt; ()"
-                  moduleName = "MusicPlayer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelnunesbezerradias/Documents/MusicPlayer-App/MusicPlayer/MusicPlayer/ViewModels/PlayerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "188">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "60A03DAB-07D6-4CB9-8EC7-5106D051E1A3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MusicPlayer/ViewModels/PlayerViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "firstSetupPlayer(currentSong:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getRequestURL()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

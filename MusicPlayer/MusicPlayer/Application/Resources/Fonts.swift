@@ -74,6 +74,6 @@ struct Fonts {
     }
     
     static var boldLargeBody: Font {
-        return Font.custom(FontWeightName.bold.rawValue, size: FontSize.LargeBody.rawValue)
+        return Font.system(size: 16).bold()
     }
 }

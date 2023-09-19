@@ -20,7 +20,7 @@ struct SongsListScreen: View {
                 .searchable(text: $viewModel.searchTerm)
                 .task {
                     viewModel.clear()
-                    await viewModel.fetchSongsList()
+                    await viewModel.fetchSongsList(searchType: .SearchingTerm)
                 }
         }
     }

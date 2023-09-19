@@ -47,7 +47,7 @@ struct PlayerScreen: View {
             setupOrientation()
         }
         .task {
-            await playerViewModel.fetchSongsList()
+            await playerViewModel.fetchSongsList(searchType: .SearchingTerm)
         }
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
             setupOrientation()

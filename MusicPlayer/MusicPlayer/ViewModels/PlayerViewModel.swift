@@ -33,7 +33,7 @@ class PlayerViewModel: SongsListViewModel {
         
         Task {
             // Get all album's songs
-            await fetchSongsList(showProgress: false)
+            await fetchSongsList(searchType: .None)
             
             // Setup songs queue
             setupSongsQueue(songsListQueue: songsList.results)
@@ -41,14 +41,16 @@ class PlayerViewModel: SongsListViewModel {
     }
     
     @MainActor
-    override func fetchSongsList(showProgress: Bool = true) async {
+    override func fetchSongsList(searchType: SearchType) async {
         guard let collectionID: Int = currentSong.collectionID else {
             LogHandler.shared.error("No collection ID found")
             return
         }
         
-        if showProgress {
-            isSearching = true
+        switch searchType {
+        case .SearchingTerm: isSearching = true
+        case .LoadingMore: isLoadingMore = true
+        case .None: break
         }
         
         // Fetch album songs
@@ -57,8 +59,10 @@ class PlayerViewModel: SongsListViewModel {
             insertNewSongs(newSongs: songsList)
         }
         
-        if showProgress {
-            isSearching = false
+        switch searchType {
+        case .SearchingTerm: isSearching = false
+        case .LoadingMore: isLoadingMore = false
+        case .None: break
         }
     }
     
