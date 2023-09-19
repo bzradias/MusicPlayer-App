@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct PlayerScreen: View {
-    @Environment(\.presentationMode) var presentation
+    @Environment(\.dismiss) var dismiss
     @State private var orientation = UIDevice.current.orientation
     @State private var showSongDetails: Bool = false
-    @State private var selectedDetent: PresentationDetent = .fraction(0.22)
-    private let availableDetents: Set<PresentationDetent> = [.fraction(0.22), .large]
+    @State private var selectedDetent: PresentationDetent = SheetViewSizes.smallest
+    private let availableDetents: Set<PresentationDetent> = [SheetViewSizes.smallest, SheetViewSizes.largest]
     
     @State private var iconStyle: SongIconStyle = .Large
+    private var iconViewSize: CGFloat {
+        return iconStyle == .Large ? 200 : 44
+    }
     
-    var song: Song
+    @StateObject public var playerViewModel: PlayerViewModel
     
     var body: some View {
         VStack(alignment: .center) {
@@ -28,12 +31,13 @@ struct PlayerScreen: View {
                     GridItem(.fixed(geometry.size.height * 0.4), alignment: .center)
                 ], alignment: .center, spacing: 0) {
                     Spacer()
-                    SongIconView(iconStyle: iconStyle)
+                    SongIconView(song: playerViewModel.currentSong, iconStyle: iconStyle)
+                        .frame(width: iconViewSize, height: iconViewSize)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
             }
-            PlayerControllView(song: song)
+            PlayerControllView(playerViewModel: playerViewModel)
                 .ignoresSafeArea(.all)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 25)
@@ -42,11 +46,14 @@ struct PlayerScreen: View {
         .onAppear {
             setupOrientation()
         }
+        .task {
+            await playerViewModel.fetchSongsList(searchType: .SearchingTerm)
+        }
         .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
             setupOrientation()
         }
         .sheet(isPresented: $showSongDetails) {
-            PlayerBottomSheetView(selectedDetent: $selectedDetent)
+            PlayerSheetView(playerViewModel: playerViewModel, selectedDetent: $selectedDetent)
                 .presentationDetents(availableDetents, selection: $selectedDetent)
                 .presentationDragIndicator(.hidden)
         }
@@ -55,7 +62,7 @@ struct PlayerScreen: View {
     private var customNavBar: some View {
         HStack(alignment: .bottom, spacing: 0) {
             GenericButton(action: {
-                self.presentation.wrappedValue.dismiss()
+                dismiss.callAsFunction()
             }, content: Image("ic-arrow-left").resizable().frame(width: 24, height: 24))
             .padding(.horizontal, 24)
             .padding(.vertical, 12)
@@ -79,6 +86,6 @@ struct PlayerScreen: View {
 
 struct PlayerScreen_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerScreen(song: Song.getInstance())
+        PlayerScreen(playerViewModel: PlayerViewModel(currentSong: Song.getInstance()))
     }
 }

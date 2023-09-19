@@ -12,9 +12,9 @@ struct SongCardView: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            SongIconView(iconStyle: .Small)
+            SongIconView(song: song, iconStyle: .Small)
                 .frame(width: 44, height: 44)
-            SongDescriptionView()
+            SongDescriptionView(song: song)
         }
     }
 }

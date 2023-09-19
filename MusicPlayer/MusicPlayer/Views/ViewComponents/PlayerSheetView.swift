@@ -1,5 +1,5 @@
 //
-//  PlayerBottomSheetView.swift
+//  PlayerSheetView.swift
 //  MusicPlayer
 //
 //  Created by Rafael Nunes Bezerra Dias on 15/09/23.
@@ -7,16 +7,23 @@
 
 import SwiftUI
 
-struct PlayerBottomSheetView: View {
+struct SheetViewSizes {
+    static public var smallest: PresentationDetent = .height(187)
+    static public var largest: PresentationDetent = .large
+}
+
+struct PlayerSheetView: View {
+    @Environment(\.dismiss) var dismiss
+    @StateObject public var playerViewModel: PlayerViewModel
+    
     private let openAlbumLabel: String = "Open album"
-    private let albumTitle: String = "Album Name"
     @Binding var selectedDetent: PresentationDetent
     
     @State private var presentationBlur: CGFloat = 7
     
     var body: some View {
         GeometryReader { geometry in
-            if selectedDetent == .large {
+            if selectedDetent == SheetViewSizes.largest {
                 modalView
             } else {
                 bottomSheetView
@@ -25,6 +32,10 @@ struct PlayerBottomSheetView: View {
         .animation(.linear, value: selectedDetent)
         .blur(radius: presentationBlur)
         .onChange(of: selectedDetent, perform: { newValue in
+            if newValue == SheetViewSizes.smallest {
+                dismiss.callAsFunction()
+            }
+            
             triggerBlurEffect()
         })
         .onAppear {
@@ -38,15 +49,16 @@ struct PlayerBottomSheetView: View {
             ColorPalette.bottomSheetBackground.edgesIgnoringSafeArea(.all)
             capsuleView
             VStack(alignment: .center, spacing: 42) {
-                SongDescriptionView(songDescriptionStyle: .Medium)
+                SongDescriptionView(song: playerViewModel.currentSong, songDescriptionStyle: .Medium)
                 HStack(alignment: .center, spacing: 16) {
                     Button {
-                        selectedDetent = .large
+                        selectedDetent = SheetViewSizes.largest
                     } label: {
                         Image("ic-playlist")
                             .resizable()
                             .frame(width: 24, height: 24)
                         Text(openAlbumLabel)
+                            .font(Fonts.mediumLargeBody)
                             .foregroundColor(ColorPalette.primaryText)
                     }
                     Spacer()
@@ -62,12 +74,12 @@ struct PlayerBottomSheetView: View {
             ColorPalette.appBackground.edgesIgnoringSafeArea(.all)
             capsuleView
             VStack(alignment: .center, spacing: 0) {
-                Text(albumTitle)
-                    .font(Font.system(size: 16).bold())
+                Text(playerViewModel.currentSong.collectionName ?? "-")
+                    .font(Fonts.boldLargeBody)
                     .multilineTextAlignment(.center)
                     .foregroundColor(ColorPalette.primaryText)
                     .frame(width: 390, height: 50, alignment: .center)
-                SongsListView(songs: SongsList.getInstance())
+                SongsListView(viewModel: playerViewModel)
             }
             .padding(.top, 10)
         }
@@ -88,8 +100,8 @@ struct PlayerBottomSheetView: View {
     }
 }
 
-struct PlayerBottomSheetView_Previews: PreviewProvider {
+struct PlayerSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerBottomSheetView(selectedDetent: .constant(.medium))
+        PlayerSheetView(playerViewModel: PlayerViewModel(currentSong: Song.getInstance()), selectedDetent: .constant(.medium))
     }
 }

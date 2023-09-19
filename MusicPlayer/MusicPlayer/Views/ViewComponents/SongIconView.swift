@@ -6,20 +6,47 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct SongIconView: View {
+    public var song: Song
     public var iconStyle: SongIconStyle = .Small
+    
+    private var iconImageName: String {
+        return iconStyle == .Small ? (song.artworkUrl60 ?? "") : (song.artworkUrl100 ?? "")
+    }
     
     var body: some View {
         ZStack(alignment: .center) {
-            RoundedCornerShape(radius: iconStyle.radius, corner: .allCorners)
-                .fill(ColorPalette.songIconBackground)
-            Image("SongIcon")
-                .resizable()
-                .frame(width: iconStyle.size, height: iconStyle.size)
-                .padding(iconStyle.padding)
+            songImageView
         }
-        .fixedSize()
+    }
+    
+    @ViewBuilder
+    private var songImageView: some View {
+        if !iconImageName.isEmpty {
+            KFImage(URL(string: iconImageName))
+                .placeholder { progress in
+                    ZStack {
+                        RoundedCornerShape(radius: iconStyle.radius, corner: .allCorners)
+                            .fill(ColorPalette.songIconBackground)
+                        if !progress.isFinished {
+                            CustomProgressView()
+                        }
+                    }
+                }
+                .resizable()
+                .cornerRadius(radius: iconStyle.radius, corner: .allCorners)
+        } else {
+            ZStack(alignment: .center) {
+                RoundedCornerShape(radius: iconStyle.radius, corner: .allCorners)
+                    .fill(ColorPalette.songIconBackground)
+                Image("SongIcon")
+                    .resizable()
+                    .frame(width: iconStyle.size, height: iconStyle.size)
+                    .padding(iconStyle.padding)
+            }
+        }
     }
 }
 
@@ -50,6 +77,6 @@ enum SongIconStyle  {
 
 struct SongIconView_Previews: PreviewProvider {
     static var previews: some View {
-        SongIconView()
+        SongIconView(song: Song.getInstance())
     }
 }
