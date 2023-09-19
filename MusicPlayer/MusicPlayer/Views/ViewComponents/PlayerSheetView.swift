@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SheetViewSizes {
-    static public var smallest: PresentationDetent = .fraction(0.22)
+    static public var smallest: PresentationDetent = .height(187)
     static public var largest: PresentationDetent = .large
 }
 

@@ -14,7 +14,7 @@ struct SplashScreen: View {
     
     var body: some View {
         ZStack {
-//            ColorPalette.appBackground.ignoresSafeArea()
+            ColorPalette.appBackground.ignoresSafeArea()
             Image("ic-splashscreen")
                 .frame(width: 200, height: 200, alignment: .center)
                 .blur(radius: iconBlur)
@@ -37,7 +37,7 @@ struct SplashScreen: View {
         .padding(.trailing, 107.49812)
         .padding(.top, 322)
         .padding(.bottom, 374)
-        .frame(width: 414, height: 896, alignment: .top)
+//        .frame(width: 414, height: 896, alignment: .top)
         .background(
           LinearGradient(
             stops: [
